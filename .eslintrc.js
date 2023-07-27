@@ -9,11 +9,7 @@ module.exports = {
       files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
     },
   ],
-  parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
     ecmaVersion: 'latest',
     sourceType: 'module',
     project: './tsconfig.json',
@@ -28,5 +24,10 @@ module.exports = {
     'prettier/prettier': ['error'],
     '@typescript-eslint/strict-boolean-expressions': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/no-dynamic-delete': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off',
+    '@typescript-eslint/prefer-nullish-coalescing': 'off',
+    '@typescript-eslint/naming-convention': 'off',
+    'n/handle-callback-err': 'off',
   },
 }

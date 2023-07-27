@@ -4,7 +4,12 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import CopyPlugin from 'copy-webpack-plugin'
 import { type BuildOptions } from './buildTypes'
 
-export const buildPlugins = ({ paths, isDev, apiUrl }: BuildOptions): WebpackPluginInstance[] => {
+export const buildPlugins = ({
+  paths,
+  isDev,
+  apiUrl,
+  clientID,
+}: BuildOptions): WebpackPluginInstance[] => {
   const plugins: WebpackPluginInstance[] = [
     new HtmlWebpackPlugin({
       template: paths.html,
@@ -12,6 +17,7 @@ export const buildPlugins = ({ paths, isDev, apiUrl }: BuildOptions): WebpackPlu
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
       __API__: JSON.stringify(apiUrl),
+      __CLIENT_ID__: JSON.stringify(clientID),
     }),
   ]
 
@@ -22,11 +28,13 @@ export const buildPlugins = ({ paths, isDev, apiUrl }: BuildOptions): WebpackPlu
         chunkFilename: 'css/[name].[contenthash:8].css',
       }),
     )
-    plugins.push(
-      new CopyPlugin({
-        patterns: [{ from: paths.logo, to: paths.build }],
-      }),
-    )
+    if (paths.logo) {
+      plugins.push(
+        new CopyPlugin({
+          patterns: [{ from: paths.logo, to: paths.build }],
+        }),
+      )
+    }
   }
   return plugins
 }

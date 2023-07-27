@@ -5,13 +5,14 @@ export interface BuildPaths {
   build: string
   html: string
   src: string
-  logo: string
+  logo?: string
 }
 
 export interface BuildEnv {
   mode: BuildMode
   port: number
   apiUrl: string
+  clientID: string
 }
 
 export interface BuildOptions {
@@ -19,5 +20,6 @@ export interface BuildOptions {
   paths: BuildPaths
   isDev: boolean
   apiUrl: string
+  clientID: string
   port: number
 }

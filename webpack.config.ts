@@ -19,11 +19,11 @@ export default (env: BuildEnv) => {
     src: path.resolve(__dirname, 'src'),
     build: path.resolve(__dirname, 'build'),
     html: path.resolve(__dirname, 'public', 'index.html'),
-    logo: path.resolve(__dirname, 'public', 'favicon.ico'),
   }
 
   const mode = env?.mode || 'development'
   const PORT = env?.port || 3000
+  const clientID = env?.clientID || ''
   const isDev = mode === 'development'
   const apiUrl = getApiUrl(mode, env?.apiUrl)
 
@@ -33,6 +33,7 @@ export default (env: BuildEnv) => {
     isDev,
     port: PORT,
     apiUrl,
+    clientID,
   })
 
   return config

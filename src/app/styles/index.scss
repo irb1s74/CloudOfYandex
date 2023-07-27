@@ -1,0 +1,46 @@
+@import "reset";
+@import "fonts";
+@import "global";
+@import "themes/normal";
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  background: var(--bg-color);
+  font: var(--font-m);
+  color: var(--text-color);
+}
+
+.content-page {
+  display: flex;
+}
+
+*::-webkit-scrollbar {
+  width: 12px; /* ширина scrollbar */
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--light-bg-color); /* цвет дорожки */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--icon-color); /* цвет плашки */
+  border-radius: 20px; /* закругления плашки */
+  border: 1px solid var(--accent-color); /* padding вокруг плашки */
+}
+
+.app *::-webkit-scrollbar {
+  width: 12px; /* ширина scrollbar */
+  height: 8px;
+}
+
+.app *::-webkit-scrollbar-track {
+  background: var(--card-bg-color); /* цвет дорожки */
+}
+
+//.app *::-webkit-scrollbar-thumb {
+//  background-color: var(--inverted-primary-color); /* цвет плашки */
+//  border-radius: 20px; /* закругления плашки */
+//  border: 2px solid var(--primary-color); /* padding вокруг плашки */
+//}

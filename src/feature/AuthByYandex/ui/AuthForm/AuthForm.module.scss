@@ -1,0 +1,27 @@
+.authForm {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding: 15px;
+  background-color: var(--card-bg-color);
+  height: 250px;
+  width: 380px;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  &__header {
+    display: flex;
+  }
+
+  &__headerTitle {
+    font-size: 32px;
+  }
+
+  &__content {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

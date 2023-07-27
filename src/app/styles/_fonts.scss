@@ -1,0 +1,7 @@
+@import "mixin/font-face";
+
+@include font-face("Montserrat", "shared/assets/fonts/Montserrat-Light", 300, light);
+@include font-face("Montserrat", "shared/assets/fonts/Montserrat-Regular", 400, normal);
+@include font-face("Montserrat", "shared/assets/fonts/Montserrat-Medium", 500, medium);
+@include font-face("Montserrat", "shared/assets/fonts/Montserrat-Bold", 700, bold);
+
