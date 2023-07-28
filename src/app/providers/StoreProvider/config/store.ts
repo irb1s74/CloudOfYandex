@@ -5,6 +5,7 @@ import { $api } from 'shared/api/api'
 import { rtkApi } from 'shared/api/rtkApi'
 import { createReducerManager } from './reducerManager'
 import { type StateSchema, type ThunkExtraArg } from './StateSchema'
+import { diskReducer } from 'entities/Disk'
 
 export function createReduxStore(
   initialState?: StateSchema,
@@ -13,6 +14,7 @@ export function createReduxStore(
   const rootReducers: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
     user: userReducer,
+    disk: diskReducer,
     [rtkApi.reducerPath]: rtkApi.reducer,
   }
 

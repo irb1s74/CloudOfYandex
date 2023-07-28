@@ -1,13 +1,15 @@
+import { MainPage } from 'pages/MainPage'
 import { AuthPage } from 'pages/AuthPage'
-import { NotFoundPage } from 'pages/NotFoundPage'
-import { type AppRoutesProps } from 'shared/types/router'
-import { AppRoutes, getRouteAuth, getRouteConfirm, getRouteMain } from 'shared/const/router'
 import { ConfirmPage } from 'pages/ConfirmPage/ui/ConfirmPage'
+import { NotFoundPage } from 'pages/NotFoundPage'
+
+import { AppRoutes, getRouteAuth, getRouteConfirm, getRouteMain } from 'shared/const/router'
+import { type AppRoutesProps } from 'shared/types/router'
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.MAIN]: {
     path: getRouteMain(),
-    element: <div />,
+    element: <MainPage />,
     authOnly: true,
   },
   [AppRoutes.AUTH]: {

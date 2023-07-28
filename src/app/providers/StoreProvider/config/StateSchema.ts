@@ -8,9 +8,11 @@ import { type CombinedState } from 'redux'
 import { type AxiosInstance } from 'axios'
 import { type UserSchema } from 'entities/User'
 import { type rtkApi } from 'shared/api/rtkApi'
+import { type DiskSchema } from 'entities/Disk'
 
 export interface StateSchema {
   user: UserSchema
+  disk: DiskSchema
   [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
   // Асинхронные редюсеры

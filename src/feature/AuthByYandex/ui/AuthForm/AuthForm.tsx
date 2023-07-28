@@ -13,7 +13,7 @@ export const AuthForm = (props: AuthFormProps) => {
   return (
     <div className={classNames(styles.authForm, [className])}>
       <div className={styles.authForm__header}>
-        <Text title='Авторизация' />
+        <Text title='Клиент Яндекс диск' />
       </div>
       <div className={styles.authForm__content}>
         <a
@@ -21,7 +21,7 @@ export const AuthForm = (props: AuthFormProps) => {
           href={`https://oauth.yandex.ru/authorize?response_type=token&client_id=${__CLIENT_ID__}`}
           rel='noreferrer'
         >
-          <Button>Войти</Button>
+          <Button>Получить доступ к диску</Button>
         </a>
       </div>
     </div>

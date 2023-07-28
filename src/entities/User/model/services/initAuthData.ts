@@ -9,14 +9,14 @@ export const initAuthData = createAsyncThunk<User, undefined, ThunkConfig<string
   async (arg, thunkAPI) => {
     const { rejectWithValue, dispatch } = thunkAPI
     const token = localStorage.getItem(USER_LOCALSTORAGE_KEY)
+
     if (!token) {
       return rejectWithValue('')
     }
 
     try {
-      const response = await dispatch(getUserDataByToken(token)).unwrap()
-      console.log(response)
-      return response
+      const response = await dispatch(getUserDataByToken(undefined)).unwrap()
+      return response.user
     } catch (e) {
       console.log(e)
       return rejectWithValue('')

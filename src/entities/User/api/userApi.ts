@@ -3,9 +3,9 @@ import { type User } from '../model/types/user'
 
 const userApi = rtkApi.injectEndpoints({
   endpoints: (build) => ({
-    getUserDataByToken: build.query<User, string>({
-      query: (token) => ({
-        url: `https://cloud-api.yandex.net/v1/disk`,
+    getUserDataByToken: build.query<{ user: User }, undefined>({
+      query: () => ({
+        url: `v1/disk`,
         method: 'GET',
       }),
     }),
