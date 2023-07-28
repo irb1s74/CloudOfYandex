@@ -5,16 +5,18 @@ import { getUploadHref } from '../../api/diskApi'
 
 export const uploadFileByHref = createAsyncThunk<
   void,
-  { path: string; formData: FormData },
+  { path: string; file: File },
   ThunkConfig<string>
->('user/initAuthData', async ({ path, formData }, thunkAPI) => {
+>('disk/uploadFileByHref', async ({ path, file }, thunkAPI) => {
   const { rejectWithValue, dispatch } = thunkAPI
 
   try {
-    const response = await dispatch(getUploadHref(path)).unwrap()
+    const href = path.length > 0 ? `${path}/${file.name}` : file.name
+    const response = await dispatch(getUploadHref(href)).unwrap()
+    const formData = new FormData()
+    formData.append('file', file)
     await axios.put(response.href, formData)
   } catch (e) {
-    console.log(e)
     return rejectWithValue('')
   }
 })

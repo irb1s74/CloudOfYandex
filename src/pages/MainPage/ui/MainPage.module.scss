@@ -28,6 +28,12 @@
     cursor: pointer;
   }
 
+  &__profileInfo {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+  }
+
   &__grid {
     flex-grow: 1;
     display: grid;

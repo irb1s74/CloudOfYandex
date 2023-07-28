@@ -11,11 +11,13 @@ export const rtkApi = createApi({
       headers.set('Host', ' api.yandex.net')
       headers.set('Origin', 'http://localhost:3000')
       headers.set('Referer', 'http://localhost:3000/')
+
       if (token) {
         headers.set('Authorization', `OAuth ${token}`)
       }
       return headers
     },
   }),
+  tagTypes: ['Files'],
   endpoints: (builder) => ({}),
 })

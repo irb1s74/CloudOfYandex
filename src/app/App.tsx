@@ -2,8 +2,7 @@ import { memo, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { AppRouter } from 'app/providers/router'
 import { PageLoader } from 'widgets/PageLoader'
-import { getUserInited } from 'entities/User'
-import { initAuthData } from 'entities/User/model/services/initAuthData'
+import { getUserInited, initAuthData } from 'entities/User'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 
 const App = memo(() => {
@@ -11,8 +10,10 @@ const App = memo(() => {
   const inited = useSelector(getUserInited)
 
   useEffect(() => {
-    dispatch(initAuthData())
-  }, [location])
+    if (!inited) {
+      dispatch(initAuthData())
+    }
+  }, [inited])
 
   if (!inited) {
     return (

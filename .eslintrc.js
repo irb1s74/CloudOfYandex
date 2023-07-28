@@ -29,5 +29,10 @@ module.exports = {
     '@typescript-eslint/prefer-nullish-coalescing': 'off',
     '@typescript-eslint/naming-convention': 'off',
     'n/handle-callback-err': 'off',
+    '@typescript-eslint/no-floating-promises': 'off',
+    '@typescript-eslint/no-invalid-void-type': 'off',
+    '@typescript-eslint/no-empty-interface': 'off',
+    '@typescript-eslint/restrict-template-expressions': 'off',
+    '@typescript-eslint/no-misused-promises': 'off',
   },
 }

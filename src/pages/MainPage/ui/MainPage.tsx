@@ -1,7 +1,9 @@
 import { createRef, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { createSearchParams, useNavigate, useSearchParams } from 'react-router-dom'
-import { IoArrowBack } from 'react-icons/io5'
+import { IoArrowBack, IoLogOut } from 'react-icons/io5'
 import { Page } from 'widgets/Page'
+import { getUserAuthData, userActions } from 'entities/User'
 import { useGetFilesByPathQuery, type IFile, File, uploadFileByHref } from 'entities/Disk'
 import { Loader } from 'shared/ui/Loader'
 import { Text } from 'shared/ui/Text'
@@ -11,12 +13,15 @@ import styles from './MainPage.module.scss'
 
 const MainPage = () => {
   const dispatch = useAppDispatch()
-  const [usePath] = useSearchParams()
-  const path = usePath.get('path') || '/'
-  const filesInput = createRef<HTMLInputElement>()
-  const { data, isFetching } = useGetFilesByPathQuery(path || '/')
-  const [selectedFile, selectFile] = useState<string>('')
+  const authData = useSelector(getUserAuthData)
   const navigate = useNavigate()
+
+  const [usePath] = useSearchParams()
+  const path = usePath.get('path') || ''
+
+  const { data, isFetching, refetch } = useGetFilesByPathQuery(path || '/')
+  const [selectedFile, selectFile] = useState<string>('')
+  const filesInput = createRef<HTMLInputElement>()
 
   const handleSelectFiles = (file: IFile) => {
     return () => {
@@ -39,24 +44,26 @@ const MainPage = () => {
     navigate(-1)
   }
 
-  const handleUpdateFiles = async () => {
+  const handleUpdateFiles = () => {
     if (filesInput.current?.files && filesInput.current.files.length) {
       if (filesInput.current.files.length > 100) {
         alert('Не больше 100 файлов')
         return
       }
-      const path = data?.name || 'disk'
-      const formData = new FormData()
-      Array.from(filesInput.current.files).forEach((file) => {
-        formData.append('file', file)
+      Array.from(filesInput.current.files).forEach(async (file) => {
+        await dispatch(uploadFileByHref({ path, file }))
+        refetch()
       })
-      await dispatch(uploadFileByHref({ path, formData }))
       filesInput.current.files = null
     }
   }
 
   const handleSelectInput = () => {
     filesInput.current?.click()
+  }
+
+  const handleLogOut = () => {
+    dispatch(userActions.logout())
   }
 
   return (
@@ -70,6 +77,12 @@ const MainPage = () => {
         <Text className={styles.mainPage__title} align='center' title={data?.name} />
         <Button onClick={handleSelectInput}>Загрузить файлы</Button>
         <input ref={filesInput} onChange={handleUpdateFiles} type='file' multiple hidden />
+        <div className={styles.mainPage__profileInfo}>
+          <Text text={authData?.display_name} />
+          <div onClick={handleLogOut} className={styles.mainPage__iconBtn}>
+            <IoLogOut size={22} />
+          </div>
+        </div>
       </header>
       {isFetching ? (
         <div className={styles.mainPage__loader}>
