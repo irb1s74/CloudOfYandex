@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve --env port=3000 clientID=6bb99d631d7a45bb91a9afcb6f58bc32",
-    "build:dev": "webpack --env mode= clientID=6bb99d631d7a45bb91a9afcb6f58bc32",
-    "build:prod": "webpack --env mode=production clientID=6bb99d631d7a45bb91a9afcb6f58bc32",
+    "start": "webpack serve --env port=3000 clientID=412cdbcbc80245988646b1f3aae71886",
+    "build:dev": "webpack --env mode= clientID=412cdbcbc80245988646b1f3aae71886",
+    "build:prod": "webpack --env mode=production clientID=412cdbcbc80245988646b1f3aae71886",
     "lint": "eslint \"**/*.{ts,tsx}\"",
     "lint:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,md,json}\" --config ./.prettierrc"
