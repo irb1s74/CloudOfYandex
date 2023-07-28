@@ -7,7 +7,10 @@ export const rtkApi = createApi({
     baseUrl: __API__,
     prepareHeaders: (headers) => {
       const token = localStorage.getItem(USER_LOCALSTORAGE_KEY) || ''
-      headers.set('Access-Control-Allow-Origin', '*')
+      headers.set('Accept', '*/*')
+      headers.set('Host', ' api.yandex.net')
+      headers.set('Origin', 'http://localhost:3000')
+      headers.set('Referer', 'http://localhost:3000/')
       if (token) {
         headers.set('Authorization', `OAuth ${token}`)
       }

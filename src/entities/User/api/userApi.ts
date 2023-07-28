@@ -5,7 +5,7 @@ const userApi = rtkApi.injectEndpoints({
   endpoints: (build) => ({
     getUserDataByToken: build.query<User, string>({
       query: (token) => ({
-        url: `https://login.yandex.ru/info`,
+        url: `https://cloud-api.yandex.net/v1/disk`,
         method: 'GET',
       }),
     }),
