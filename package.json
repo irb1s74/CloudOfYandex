@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --env port=3000 clientID=412cdbcbc80245988646b1f3aae71886 apiUrl=https://cloud-api.yandex.net/",
-    "build:dev": "webpack --env mode= clientID=412cdbcbc80245988646b1f3aae71886",
-    "build:prod": "webpack --env mode=production clientID=412cdbcbc80245988646b1f3aae71886",
+    "build:dev": "webpack --env mode= clientID=412cdbcbc80245988646b1f3aae71886 apiUrl=https://cloud-api.yandex.net/",
+    "build:prod": "webpack --env mode=production clientID=412cdbcbc80245988646b1f3aae71886 apiUrl=https://cloud-api.yandex.net/",
     "lint": "eslint \"**/*.{ts,tsx}\"",
     "lint:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,md,json}\" --config ./.prettierrc"
