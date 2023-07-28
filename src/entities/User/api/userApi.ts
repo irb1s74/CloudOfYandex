@@ -5,12 +5,8 @@ const userApi = rtkApi.injectEndpoints({
   endpoints: (build) => ({
     getUserDataByToken: build.query<User, string>({
       query: (token) => ({
-        url: `https://login.yandex.ru/info`,
-        baseUrl: '',
+        url: `https://login.yandex.ru/info/`,
         method: 'GET',
-        headers: {
-          Authorization: 'OAuth y0_AgAAAAARrso1AADLWwAAAADo0eej0M3a7pmTSGiqW-y7kIIQLWAkStc',
-        },
       }),
     }),
   }),
