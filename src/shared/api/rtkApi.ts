@@ -10,7 +10,12 @@ export const rtkApi = createApi({
       if (token) {
         headers.set('Authorization', `OAuth ${token}`)
       }
-
+      headers.set('Access-Control-Allow-Origin', `*`)
+      headers.set(
+        'Access-Control-Allow-Headers',
+        `Accept, Accept-Language, Authorization, Content-Type, X-Requested-With`,
+      )
+      headers.set('Content-Type', 'application/json')
       return headers
     },
   }),

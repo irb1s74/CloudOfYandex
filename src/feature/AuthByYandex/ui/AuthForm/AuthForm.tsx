@@ -17,7 +17,7 @@ export const AuthForm = (props: AuthFormProps) => {
       </div>
       <div className={styles.authForm__content}>
         <a
-          target='_blank'
+          target='_self'
           href={`https://oauth.yandex.ru/authorize?response_type=token&client_id=${__CLIENT_ID__}`}
           rel='noreferrer'
         >
