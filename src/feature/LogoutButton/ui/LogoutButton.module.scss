@@ -1,0 +1,14 @@
+.logoutButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__iconBtn {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+}

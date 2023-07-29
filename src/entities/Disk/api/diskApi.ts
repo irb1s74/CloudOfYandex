@@ -28,6 +28,5 @@ const diskApi = rtkApi.injectEndpoints({
   }),
 })
 
-export const { useGetFilesByPathQuery } = diskApi
+export const { useGetFilesByPathQuery, useLazyGetFilesByPathQuery } = diskApi
 export const getUploadHref = diskApi.endpoints.getUploadHref.initiate
-export const uploadFile = diskApi.endpoints.uploadFile.initiate
